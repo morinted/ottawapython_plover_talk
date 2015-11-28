@@ -7,7 +7,7 @@
 ## TODO:
 
 - Everything
-- Confirm Mirabai's availability
+- Confirm Mirabai's availability ✔
 - Write summary blurb
 - Enumerate possible topics
 - Decide on format
@@ -17,8 +17,10 @@
 
 Summary is required to tell people what the presentation will be about on the website. Need to know if Mirabai is available in order to tell whether or not we will have captioning.
 
-*This event will talk will be live captioned for the deaf or hard of hearing.* Writing at 225 words per minute using Plover, open source stenography software. Plover brings the art of machine stenography, an art older than computers, into your hands. You can use its amazing speed and efficiency for any computer task from writing into Facebook chat all the way to programming and window management.
- Plover's lead maintainer, Ted Morin, will talk about the technology behind Plover and explain how stenography fits into the modern world, one no longer lead by capitalist proprietary companies, but instead by curious hackers as a part of the open source movement.
+Ottawa Python: Typing faster than you speak—Ted Morin
+*This event will talk will be live captioned for the deaf or hard of hearing.* Plover is free software that enables you to type on a computer at over 200 words per minute. Plover brings machine stenography, an art older than computers, into everyone's hands.
+
+Plover's current lead developer, Ted Morin, will talk about why Plover was created, how it works, and explain the role stenography has in the modern world.
 
 ### Topics
 
@@ -33,7 +35,6 @@ Just writing some ideas down on what I *could* talk about. This crowd tends to l
 - Programming
 - Layout
 - Basic theory/demo
-
 - My history
   + Often people rebute steno, citing the failure of Dvorak or Colemak. The systems really aren't comparable, and I'd like to try to emphasize that by explaining that I've learned Dvorak, Colemak, Workman, and (still use) Norman. Steno is just a completely different beast.
 
