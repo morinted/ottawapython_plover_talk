@@ -16,11 +16,11 @@
 
 Summary is required to tell people what the presentation will be about on the website. Need to know if Mirabai is available in order to tell whether or not we will have captioning.
 
-Ottawa Python: Typing over 225 words per minute.—Ted Morin
+Ottawa Python: How to Write Over 200 Words Per Minute.—Ted Morin
 
-*This event will talk will be live captioned for the deaf or hard of hearing.* Plover is free software that enables you to type on a computer at over 200 words per minute. Plover brings machine stenography, an art older than computers, into everyone's hands.
+*This talk will be live-captioned for the deaf or hard-of-hearing.* Plover is free software written in Python that enables you to type on a computer at over 200 words per minute. Plover brings machine stenography, an art older than computers, into everyone's hands.
 
-Plover's current lead developer, Ted Morin, will talk about why Plover was created, how it works, and explain the role stenography might have in the modern world.
+Plover's current lead developer, Ted Morin, will talk about why Plover was created, how it works, and explain the role stenography might have in the modern world, as it moves beyond transcription and into the hands of hackers.
 
 ### Topics
 
