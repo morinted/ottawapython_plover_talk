@@ -6,9 +6,6 @@
 
 ## TODO:
 
-- Everything
-- Write summary blurb
-- Enumerate possible topics
 - Decide on format
 - Consider live components/audience participation
 
@@ -30,12 +27,14 @@ Just writing some ideas down on what I *could* talk about. This crowd tends to l
 
 - History of steno; the usual spiel
   + OSP & Knight, Lifton, and Fisher saving the day / changing my life as a programmer and typing enthusiast
+    - Mirabai graduated from school, became a CART, wanted to make steno free. Met Lifton who lived in the same building, looking for Python tutoring. Turned into development sessions for what would become Plover. Lifton became the lead developer, and brought Plover to life. Lifton stepped down to work on CrowdSupply, Hesky Fisher got into it because he was in a relationship with a stenographer-in-training. He's mainly stepped down and into developer emeritus.
+    - I started learning in August 2014, once I got NKRO working on my ErgoDox. Progress went well until I realized that my hardware was not very ideal, plus school was very busy. Then, after getting a new, lighter-switched ErgoDox, I continued my learning. I hit 100 words per minute about a year in, and now I'm hovering around 130 words per minute, though in bursts I hit speeds averaging 180 words per minute. I started developing Plover when I found myself with a little more free time.
   + Stenography has existed as shorthand for thousands of years. You may have heard of journalists using Pittman, Teeline, or Gregg shorthand. These were written using phonetic based shortcuts instead of spelling. Machine shorthand, created with a Stenotype, is a similar system, but uses keys to form the phonetic representation instead of lines.
   + The first stenotypes were conceived of in the 1800s, with a patent in 1879. These stenotypes would punch letters into a paper strip, each line representing a phonetic, a word, or a phrase.
 - Speed (TypeRacer)
   + QWERTY typists average about 40 words per minute, but naturally fast typists will usually hover around 80 words per minute to 120 words per minute. The truly exceptional, such as Sean Wrona, writes with an average speed of about 170 words per minutes.
   + Court reporters must reach an average of 225 words per minute in order to get certified.
-  + The world record stenographer, Mark Kislingbury writes at about 360 words per minute.
+  + The current world-record-holding stenographer, Mark Kislingbury writes at about 360 words per minute.
 - Accessibility
 - Programming
 - Layout
