@@ -53,11 +53,14 @@ Just writing some ideas down on what I *could* talk about. This crowd tends to l
   + Machine is NKRO --> suppression, detection
   + Machine is serial --> no suppression, think pair programming
 - Technologies: wxPython, pySerial, hid interfaces
+  + wxPython has been difficult
 - Caveats: emoji, keyboard suppression
+  + Emoji's often have the same "start" and it made the functionality of emoji hard. Basically, say you are writing "New York". In steno that's "new" then "york". Two strokes. As you output, "new" will be written, then when you input "york", it will backspace back the "new" and output "New York". Plover tries to identify the common beginnings of the output to save on keystrokes. With emoji, it would identify a common beginning, even though that's simply because emoji tend to be longer than a byte. It would then attempt to output half an emoji (as in the case of moej kat 2). The fix was to properly handle emoji.
 
 #### Unsolved problems/call for help
 
 - Conceptual solution to holding down modifiers
+  + Shift/Control-click.
 - GitHub issues:
   + Customizable key layout; make it easier to port to new languages, layouts.
   + New UI framework; wxPython has issues.
