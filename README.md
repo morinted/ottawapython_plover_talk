@@ -36,20 +36,30 @@ Just writing some ideas down on what I *could* talk about. This crowd tends to l
   + Court reporters must reach an average of 225 words per minute in order to get certified.
   + The current world-record-holding stenographer, Mark Kislingbury writes at about 360 words per minute.
 - Accessibility
+  + CART is used to help deaf or hard of hearing individuals -- Mirabai Knight captions lectures, conventions, or interactions for people.
 - Programming
+  + I am using steno to program now, full time in JavaScript, Java, and Python. It works great with Markdown. At the worst, it's about as fast as regular typing, at best you can do multiple symbols at once. Basically, because of the phonetic system, you never need to move off the "home row" for any symbol, really any word. So most symbols are as easy as writing a syllable or a word. It is not incredibly faster than normal typing, but it's definitely more ergonomic --> and comments and documentation are trivially easy.
 - Layout
+  + STKPWHRAOEUFRPBLGTSDZ. Press all the keys at once and the word appears. There are chords that combine to make the missing letters. In that list, for example ST*K*PWHR*A*OEUFRPBLG*T*SDZ --> "KAT" --> "cat". Or in the case of STK*P*W*H*RA*OE*UF*R*PBLGTSDZ which makes "MOER" --> "mother"
 - Basic theory/demo
+  + Some theories are light on memory, but require more strokes --> more phonetic-based. Syllable by syllable. (Phoenix). Some are more memory heavy, like the aforementioned Mark Kislingbury's Magnum theory. Plover ships with a hybrid theory that aims to fill the best of both theories.
 - My history
-  + Often people rebute steno, citing the failure of Dvorak or Colemak. The systems really aren't comparable, and I'd like to try to emphasize that by explaining that I've learned Dvorak, Colemak, Workman, and (still use) Norman. Steno is just a completely different beast.
+  + Often people argue against steno, citing the failure of Dvorak or Colemak. The systems really aren't comparable, and I'd like to try to emphasize that by explaining that I've learned Dvorak, Colemak, Workman, and (still use) Norman. Steno is just a completely different beast. Slow starts, hardware feels like a barrier, theory takes thought from new angles on English --> THIG W PORLS (thinking with portals)
 
 #### Pythonic!!
 
 - High-level diagram of the system:
   + Machine --> Interpreter --> Orthography rules --> OS Layer
+  + Machine is NKRO --> suppression, detection
+  + Machine is serial --> no suppression, think pair programming
 - Technologies: wxPython, pySerial, hid interfaces
 - Caveats: emoji, keyboard suppression
 
 #### Unsolved problems/call for help
 
 - Conceptual solution to holding down modifiers
-- GitHub issues: customizable key layout, new UI framework, conversion to Python 3, open to new coders for simple things like documentation.
+- GitHub issues:
+  + Customizable key layout; make it easier to port to new languages, layouts.
+  + New UI framework; wxPython has issues.
+  + Conversion to Python 3
+  + Open to new coders and learners. Artwork also welcome.
