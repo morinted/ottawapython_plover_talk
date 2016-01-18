@@ -46,6 +46,10 @@ Just under a decade ago, all three of these things were only available in propri
 
 The proprietary software solutions were created for the purpose of transcription, and as such the software ended up being a walled-garden sandbox where you can write into a document, like an enhanced Microsoft Word. That means that you are limited to only using steno to collect text.
 
+Steno was probably one of the most proprietary technologies in the world, and it got that way because of its niche use and lower popularity, along with a few monopolizing companies in charge. All that changed, though, when a geek learned steno. Mirabai Knight graduated from a court reporting school in March 2007, and was fed up with the whole system. She had this technology that allowed her to express ideas effortlessly at uninmaginable speeds, but was unable to use it for most of her life, with software that was severly lacking in features. You can read through all the way back to 2008 where Mirabai had conceived and named what would be "Plover". She wanted an open source steno program to solve all the problems that the other software didn't.
+
+But, she couldn't code. Whoops. So with a little chance and a dash of fate, Mirabai actually met an MIT graduate who was willing to teach her Python.
+
 - History of steno
 
   + OSP & Knight, Lifton, and Fisher saving the day / changing my life as a programmer and typing enthusiast
