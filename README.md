@@ -16,11 +16,17 @@ Plover's current lead developer, Ted Morin, will talk about why Plover was creat
 
 ## Introduction
 
-Today I'd like to talk about a technology that consumes much of my life now, even though I've only known about it for a year and a half. This technology is stenography, a shorthand system that allows people to type at over 225 words per minute, on par with human speech. I'm talking about it here right now because the software I use is written in Python. I'm going to talk to you about a few things tonight: what stenography was, what changed it into what it is today, and where it might be going, and the role that Python has played in making it all possible.
+Today I'd like to talk about a technology that consumes much of my life now, even though I've only known about it for a year and a half. This technology is stenography, a shorthand system that allows people to type at over 225 words per minute, on par with human speech. I'm talking about it here right now because the software I use is written in Python. I'm going to talk to you about a few things tonight: what stenography was, what changed it into what it is today, where it might be going, and the role that Python has played in making it all possible.
+
+## Who, you?
+
+I should introduce myself. My name is Ted Morin, I'm a fourth year software engineering student at the University of Ottawa → meaning I've been taught Java. I split my time between school and working for a start up in the Wellington West area, Clearwater Clinical. Clearwater makes high-tech solutions to expensive and outdated technology in the medical field. There I use JavaScript, consisting of mainly React and Redux, to build web portals for their software products.
+
+I'm a big fan of JavaScript, but remind me not to tell it to you guys. … oh. I've used Python for a while, way before JavaScript because things like Node didn't exist. I used it a lot at home whenever I had to work through a math problem or build a quick web scraper, its simplicity lets you focus on the problem at hand. It's really quite a novel language, and I didn't appreciate it enough until I started noticing the differences between it and my other main languages, namely Java and JavaScript. I think my favorite Python feature is optional named parameters. I think that should be in every language, it's just too convenient.
 
 ## What is Stenography, in the first place?
 
-Stenography is a system of writing that aims to decrease the length required to express language. You may have heard of written shorthand systems like Gregg and Pitman, which is used by journalists to take written notes quickly. The stenography that I'm talking about, machine stenography, is based off the same theory as written shorthand. Basically, it's a system that optimizes for English, mainly phonetically, in order to increase output speed of transcription. With machine stenography in particular, the stenograph allows you to chord keys, meaning you  The means that instead of writing out the letters of a word, say "nauseous", you produce the sound. Stenography might allow you to stroke the word as "N-AW-SHS" or "NAW/SHOUS". The word "particular" is 12 letters, but can be stroked in stenography with 6 keys, all hit at once, "PLARL".
+Stenography is a system of writing that aims to decrease the length required to express language. You may have heard of written shorthand systems like Gregg and Pitman, which is used by journalists to take written notes quickly. The stenography that I'm talking about, machine stenography, is based off the same theory as written shorthand. Basically, it's a system that optimizes for English, mainly phonetically, in order to increase output speed of transcription. With machine stenography in particular, the stenograph allows you to chord keys, meaning you  The means that instead of writing out the letters of a word, say "nauseous", you produce the sound. Stenography might allow you to stroke the word as "N-AW-SHS" or "NAW/SHOUS". The word "particularly" is 12 letters, but can be stroked in stenography with 6 keys, all hit at once, "PLARL".
 
 ## How fast is it actually?
 
@@ -44,13 +50,13 @@ Let's talk a little bit about the history of machine stenography. To use stenogr
 
 Just under a decade ago, all three of these things were only available in proprietary form. It cost, in US dollars, about one to four thousand dollars for the hardware, a thousand dollars yearly subscription for the software, and thousands for a college education, which can take 1 to 7 years.
 
-The proprietary software solutions were created for the purpose of transcription, and as such the software ended up being a walled-garden sandbox where you can write into a document, like an enhanced Microsoft Word. That means that you are limited to only using steno to collect text.
+The proprietary software solutions were created for the purpose of transcription, and as such the software ended up being a walled-garden sandbox where you can only write into a document, like an enhanced Microsoft Word. That means that you are limited to only using steno to collect text.
 
-Steno was probably one of the most proprietary technologies in the world, and it got that way because of its niche use and lower popularity, along with a few monopolizing companies in charge. All that changed, though, when a geek learned steno. Mirabai Knight graduated from a court reporting school in March 2007, and was fed up with the whole system. She had this technology that allowed her to express ideas effortlessly at uninmaginable speeds, but was unable to use it for most of her life, with software that was severly lacking in features. You can read through all the way back to 2008 where Mirabai had conceived and named what would be "Plover". She wanted an open source steno program to solve all the problems that the other software didn't.
+Steno was probably one of the most proprietary technologies in the world, and it got that way because of its niche use and lower popularity,  leading it to be a market with very few companies in charge. All that changed, though, when a geek learned steno. Mirabai Knight graduated from a court reporting school in March 2007, and was fed up with the whole system. She had this technology that allowed her to express ideas effortlessly at previously unattainable speeds, but was unable to use it for most of her everyday life, with software that was severly lacking in features. You can read through all the way back to 2008 where Mirabai had conceived and named what would be "Plover". She wanted an open source steno program to solve all the problems that the other software didn't.
 
-But, she couldn't code. Whoops. So an apartment ad, a little chance, and a dash of fate later, Mirabai actually met an MIT graduate who was willing to teach her Python. Joshua Lifton started to teach Mirabai Python, but as he soon found out, Mirabai wasn't totally interested in learning to code, but rather just how to code a single program. So, they started to code Plover together, and given a little bit more time, Mirabai decided that coding wasn't really her thing, and Joshua started developing the application on his own.
+But, she couldn't code. Whoops. So an elevator ad, a little chance, and a dash of fate later, Mirabai actually met a freelance software engineer with a PhD from theMIT media lab who was willing to teach her Python. Joshua Lifton started to teach Mirabai Python, but as he soon found out, Mirabai wasn't totally interested in learning to code, but rather just how to code a single program. So, they started to code Plover together, and given a little bit more time, Mirabai decided that coding wasn't really her thing, and Joshua started developing the application on his own.
 
-Within a little bit of time, Plover was born. Plover was unique because it didn't require a steno machine, but rather just any NKRO keyboard. It was a very simple application and over many years, Plover grew.
+Plover was born. Plover was unique because it didn't require a steno machine, but rather just any NKRO keyboard. It was a very simple application and over many years, Plover grew.
 
 # What is steno today?
 
@@ -58,19 +64,23 @@ Today, Plover is cross platform, working on Windows, OSX, and Linux. It allows y
 
 After Joshua Lifton was unable to work anymore on the program due to his need to focus on Crowd Supply, a crowd funding platform which boasts a high funding success rate. He also started working on the Stenosaurus, an open source steno machine that will be funded through Crowd Supply, sometime in 2016. After Josh left the project, Hesky Fisher, an engineer at Google, started to work on it. Hesky made a big push in adding steno machine support, improving the cross platform functionality, and much more in his time as lead developer. He started to distance away from the project as Josh did to pursue other projects.
 
+## Learning
+
+So, the software is now free and the hardware is relatively cheap, all that's left is the schooling. Previously, there was no way for people to teach themselves how to steno. They had to sign up for some kind of education, whether online or at an institution. That changed when a technical writer took interest in learning steno. Mirabai traded lessons with Zack Brown, in exchange for him documenting them and formulating a textbook for anyone to learn steno. That textbook exists today online as Learn Plover!.
+
 # My stenography experience
 
 I started learning stenography in August 2014, once I got NKRO working on my ErgoDox. Progress went well until I realized that my hardware was not at all ideal (mainly due to the heavy actuation force on my keyboard's keys), and school was very busy. Then, after getting a new, lighter-switched ErgoDox, I continued my learning. I hit 100 words per minute about a year in, and now I'm hovering around 130 words per minute, though in bursts I hit around 180 words per minute. I started developing Plover when I found myself with a little more free time and the need for certain features. Eventually I became Plover's lead developer, but I consider myself more as the lead maintainer.
 
-# What is the good for?
+# What is it good for?
 
 ## Accessibility
 
-CART is used to help deaf or hard of hearing individuals -- Mirabai Knight captions lectures, conventions, or interactions for people.
+Realtime captioning is used to help deaf or hard of hearing individuals -- Mirabai Knight captions lectures, conventions, or interactions for people.
 
 ## Programming
 
-I am using steno to program now, full time in JavaScript, Java, and Python. It works great with Markdown. At the worst, it's about as fast as regular typing, at best you can do multiple symbols at once. Basically, because of the phonetic system, you never need to move off the "home row" for any symbol, really any word. So most symbols are as easy as writing a syllable or a word. It is not incredibly faster than normal typing, but it's definitely more ergonomic → and comments and documentation are trivially easy.
+I am using steno to program now, full time in JavaScript, Java, and Python. It works great with Markdown. At the worst, it's about as fast as regular typing, at best you can do multiple words, phrases, or symbols at once. Basically, because of the phonetic system, you never need to move off the "home row" for any symbol, really any word. So most symbols are as easy as writing a syllable or a word. It is not incredibly faster than normal typing, but it's definitely more ergonomic → and comments and documentation are trivially easy.
 
 # How does it work?
 
@@ -114,7 +124,7 @@ As for the future of stenography, it's in the hands of hackers like you and me n
 
 But there are more noble reasons for stenography to be pushed into the modern world. Yes, court reporting still exists, and it is actually the most reliable form of transcription. A human performs better today than any recording system. A human tends to be more reliable than microphones and computers for the purpose of recording depositions. Effectively, the text output that I stenographer makes is cheap to store, quick to search, and consistent in its quality. Voice recognition solutions often have issues with context or especially with handling multiple speakers in the court settings. I'm all for technology taking over realtime transcriptions, but it is really not there yet and probably won't be for a while.
 
-But stenography has some other uses that might be beneficial for society. One of those is CART (communication access realtime translation) for accessibility purposes. Mirabai has acted as a CART provider for years, as she captions lectures and events for people who need it. Realtime transcription is necessary for individuals who are deaf or hard of hearing. In Canada, we have mandatory captioning of all television, including life events, meaning that there is always someone providing CART, and the providers are stenographers. In the modern age, we face a huge issue where most YouTube videos are posted without transcription, meaning the deaf cannot view a lot of content. YouTube has automatic transcription which is laughable at best. There are many free efforts to caption YouTube videos, but stenography could help alleviate this problem.
+But stenography has some other uses that might be beneficial for society. One of those is realtime captioning for accessibility purposes. Mirabai has acted as a realtime captionist for years, as she captions lectures and events for people who need it. Realtime transcription is necessary for individuals who are deaf or hard of hearing. In Canada, we have mandatory captioning of all television, including life events, meaning that there is always someone providing realtime captions, and the best providers are stenographers. In the modern age, we face a huge issue where most YouTube videos are posted without transcription, meaning the deaf cannot view a lot of content. YouTube has automatic transcription which is laughable at best. There are many free efforts to caption YouTube videos, but stenography could help alleviate this problem.
 
 Anyone who cannot speak could also use stenography to communicate → if you cannot speak, learn steno and then use a text-to-speech program, and you write a conversional pace, much unlike the solutions that exist today.
 
