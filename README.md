@@ -100,7 +100,7 @@ And so, Plover was born!
 
 ---
 
-Oh wait, that's not software, those are Plover birds. Where did Delores go...
+Oh wait, that's not software, those are Plover birds. Where did Dolores go...
 
 ---
 
@@ -265,7 +265,7 @@ There a few big tasks to figure out and implement with Plover. I've had the amaz
 - Currently, there's no way to "hold down" a modifier, and so you cannot do things like shift or control click, meaning often when I'm doing file management or using Photoshop, I'll find myself needing both my keyboard and my steno machine out.
 - Plover has its layout hard coded, meaning that to change the steno layout or the number of keys, you need to modify the source code and rebuild Plover. This is a huge barrier to using stenography in other languages, and it's a high priority to making Plover useful internationally.
 - We are using wxPython classic as a our UI, and this proves really difficult whenever we try to do user interface work that is non-trivial in Plover. It would be ideal to move over to someone like QT but that's a huge development effort.
-- Plover doesn't look that great, and we only have the one Delores, as cherished as she is.
+- Plover doesn't look that great, and we only have the one Dolores, as cherished as she is.
 
 ---
 
