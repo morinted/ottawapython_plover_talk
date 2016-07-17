@@ -14,45 +14,77 @@ Plover's current lead developer, Ted Morin, will talk about why Plover was creat
 
 ### Topics
 
-## Introduction
+## Splash with Stanley Writing on Machine
 
-The up there is a steno machine. It's a special keyboard-kinda thing that plays a little bit more like a piano. You hit a bunch of keys at once to form a chord, and out comes full words, sentences, symbols, whatever.
-
-I've only known about stenography for about a year and a half, but it has greatly impacted my life. Stenography that allows people to write on a computer at over 225 words per minute, on par with human speech. I'm here right now because Plover, the free steno software, is written in Python.
+Hi everyone, today I'm going to be talking about the technology that is being used to write in this GIF. Today's talk is being captioned live, with Mirabai Knight on the other end of a Skype call. As I talk, she's taking down everything I am saying and it is being live streamed through a website called Aloft. Mirabai is a real person, so please don't ask her if she's speech recognition software, because she's much more accurate than that. Also, sometimes she writes back. You can follow along the slides and captions on your personal computer at OpenSteno.org/pygotham2016
 
 ---
 
 ## Who, you?
 
-I should introduce myself. My name is Ted Morin, I'm a fourth year software engineering student at the University of Ottawa → meaning I've been taught Java. I split my time between school and working for a start up in the Wellington West area, Clearwater Clinical. Clearwater makes high-tech solutions to expensive and outdated technology in the medical field. There I use JavaScript, consisting of mainly React and Redux, to build web portals for their software products.
+I'm Ted Morin, @morinted on Twitter and GitHub. I'm currently finishing up my software engineering  undergraduate at the University of Ottawa in Ontario, Canada. I split my time between school and working for a high-tech medical start up, Clearwater Clinical. There I use JavaScript, consisting of mainly React and Redux, to build web applications for their products.
 
-I'm a big fan of JavaScript, but don't tell anyone because they tend to yell at me for loving such a...special language.
+I'm actually a big fan of JavaScript, which really doesn't give me many brownie points with die hard Pythonistas.
 
-I've used Python for what I'd consider a while, way before JavaScript because things like Node didn't exist at the time. It was my first scripting language, first language I was using through a command-line. I used it a lot at home whenever I had to work through a math problem or build a quick web scraper, its simplicity lets you focus on the problem at hand instead of classes and semicolons. It's really quite a novel language, and I didn't appreciate it fully until I started noticing the differences between it and Java or JavaScript. I think my favorite Python feature is optional named parameters. I think that should be in every language, it's just too convenient.
+I've used Python for what I'd consider a while, way before JavaScript because things like Node didn't exist at the time. It was my first scripting language, first language I was using through a command-line. I used it a lot at home whenever I had to work through a math problem or build a quick web scraper.
 
-So I'm a software developer, and I use stenography to write all my code.
+In my free time I lead development for Plover, though I'm lucky to work with members of the community who are smarter and more experienced than me.
+
+So--I'm a software developer, but I use a steno machine to write all my code.
+
+
+## Introduction
+
+These are steno machines. They're similar to a computer keyboard in size, but you write on them a little bit more like you play a piano. You hit a bunch of keys to form a chord, then release all the keys at once, and out comes full words, sentences, symbols, whatever.
+
+I've known about stenography for two years now, and I'm excited to get the chance to share it with you today.
+
+Stenography allows people to write on a computer at over 225 words per minute, on par with human speech. I'm here right now because Plover, the first free steno software, is written in Python.
+
+---
+
+I'm going to start us off with a quick demo video I made to show the difference between writing with a steno machine versus a Qwerty keyboard. I'm playing a free game on Steam called Steno Arcade, which was created by an accessibility-focused gaming company in partnership with Open Steno, and was recently successfully crowdfunded. In the game, you write the lyrics to a song as the singer sings them for a high score. Go download it when you get home.
+
+I want to show you what it looks like to write on a steno machine, and you can see the contrast in my hand movement, effort, and game accuracy. Please note that I'm not the fasted typist nor stenographer by far.
 
 ---
 
 ## Table of contents
 
-Here's what I'm going to talk about today, written by a very confused individual:
+Here's what I'm going to talk about today:
 
-- Plover, duh, that's the title, Ted.
-  - ELI5 steno plz
-  - Speed, what, where‽
-  - How the heck did steno happen?
-  - Hello, Python talk? 😕
-  - Whoa, teach me mister Ted
-  - Noice tauk m8, qu'est-ce que c'est, la future de sténographie?
+### Plover
 
-I'm going to talk to you about Plover, open source stenography software written in Python. To do that, I need to define what stenography is, and part of that is discussing why it's so fast. We'll go over how Plover came to be, talk a little bit about the Python code behind it, and just a tad of the theory and physical layout. After, I'll close with some thoughts about where I think steno will be in the future.
+- What is **Stenography**
+- How fast do we *need* to type
+- Steno layout and basics
+- History of Open Steno
+- Isn't this a Python conference when are you going to talk about Python?
+- Future of steno (and you)
+
+My goal today is to tell you about Plover, open source stenography software written in Python. To do that, I need to define what stenography is and why its high speed is so useful. I'll also try to convey in simple terms a little bit of the mental process that a stenographer goes through when writing, in a method I call Thinking with Portals. We'll go over how Plover and Open Steno came to be, then talk a little bit about the Python program behind it. Finally, I'll close with some thoughts about where I think steno will be in the future.
 
 ---
 
 ## What is Stenography, in the first place?
 
-Stenography is a system of writing that aims to decrease the length required to express language. You may have heard of written shorthand systems like Gregg and Pitman, which are used by journalists to take written notes quickly. The stenography that I'm talking about, machine stenography, is based off the same theory as written shorthand. Basically, it's a system that optimizes for English, mainly phonetically, in order to increase output speed of transcription. With machine stenography in particular, the stenograph allows you to chord keys, that means that instead of writing out the letters of a word you produce the sound. This means that you don't really have to think about spelling anomalies. You can write "nauseous" and "cautious" and "conscious" by sound alone, effectively "naw", "caw", and "con" followed by "shs". Through other rules, we can phonetically shorten a word. Like "particular", we can sort of drop most of the word and sound out "p-lar", and by extension "particularly", which is 12 letters, it can be written in one stroke, which is given by the phonetic input "p-lar-l".
+Stenography is a system of writing that aims to decrease the amount of effort required to express language. You may have heard of written shorthand systems like Gregg and Pitman, which were commonly used by journalists, students, and court reporters to take written notes quickly.
+
+---
+
+The stenography that I'm talking about, machine stenography, is based off the same theory as written shorthand. Basically, it's a system that optimizes for English, mainly phonetically, in order to increase output speed of transcription. With machine stenography in particular, the stenograph allows you to chord keys, that means that instead of writing out the letters of a word you produce the sound. This vintage-style paper tape shows what a machine stenographer might have written before instant computer stenography existed. The stenographers of the last century would produce this ticker tape output as people spoke, and then later would transcribe what the machine produced. This ticker tape clearly reads: "you should be able to read these short words". Nowadays, translation is instant, as you can clearly see by the captions being produced overhead.
+
+For the actual layout, the system works in a declarative way. The keys you press get read by the software, left to write like on the steno paper here. The left hand is the beginning consonant, the blue keys, the thumb keys at the bottom make up the vowel sounds, and the right hand makes up the ending consonant.
+
+For missing letters, they are achieved by hitting combinations of other keys that generally don't conflict phonetically. For example, the "L" sound can start a word by pressing the "HR" keys, because words don't start with LR or HL
+
+---
+
+As I've hinted, stenography in English is a phonetic system. For English in particular, we have the case where phonetics are rather simple and spelling often just plain doesn't make sense.
+
+With a phonetic system, you don't really have to think about spelling. Think of these phonetically similar words, "nauseous" and "cautious" and "conscious". They are all spelled differently, but have the same sound ending. In steno, you write these all with the same suffix, and only the prefix changes, effectively "naw", "caw", and "con" followed by "shs".
+
+Through other rules, we can phonetically shorten a word. Like "particular", we can sort of drop most of the word and sound out "p-lar" which isn't a real word, and by extension "particularly", which is 12 letters, it can be written in one stroke, which is given by the phonetic input "p-lar-l".
 
 Stenography is much faster than regular typing.
 
@@ -64,53 +96,89 @@ Here are some average speeds in terms of words per minute.
 
 Handwriting 25WPM < Hunt and Pecker 40WPM < Touch typist 80WPM < Casual Speech 160WPM < Practical Speech Recognition 180WPM < Stenography 225WPM
 
-These of course are averages, the top typist in the world, Sean Wrona, types at 170 words per minute on average with a QWERTY keyboard. The top stenographer in the world, Mark Kislingbury, writes at 360 words per minute on average.
+These, of course, are averages, the top typist in the world, Sean Wrona, types at 170 words per minute on average with a QWERTY keyboard. The top stenographer in the world, Mark Kislingbury, holds a world record at 360 words per minute, writing around 250 to 300 words per minute for extended periods of time.
 
-225WPM is not a speed limit with stenography, but rather a good baseline, as it is the required speed for an individual to be certified for court reporting the United States. Some students stop around 180 words per minute mark and do non-realtime jobs that aren't as dependent on speed. Many people surpass this 225 minimum, like the captioner who is writing for us today, Mirabai Knight, who writes at an average of 260WPM. The stenography speed world record holder, Mark Kislingbury, writes at 360WPM.
-
-So this is to say that for most people, stenography can increase your writing speed from 2 to 4 times its current speed, faster than human speech.
+So this is to say that for most people, stenography can increase your writing speed from 2 to 4 times its current speed, to a point faster than human speech.
 
 ---
 
-## What *was* steno?
+# How does it work?
 
-Let's talk a little bit about learning machine stenography about a decade ago. To do steno, you need 3 things:
+So how do we get from full words to phonetic systems? It's hard to describe, but while learning stenography you get a better grasp on the word startings and endings that you can encounter, as well as the vowel sounds. I'll take my example phrase, "Thinking with Portals". I see the -ing suffix, which is super common. "with" is a word that is used all the time, we'll just assign it "w". There's also the "-s" suffix present. Luckily the steno machine ends with an s key so you can pluralize almost any stroke. Finally, I'm going to drop unstressed vowels, and mix in a little bit of personal understanding. I think of this phonetically as written here, [*phonetically*] "thi-ing wi porals"
 
-- Hardware to input the shorthand
-- Software to handle the input from the hardware and convert it into plain English
-- Education in order to learn the system and get faster
+You end up with only three strokes, one per word, with the representation shown below. The number of keys you use in a stroke generally doesn't matter, since you move your whole hand up and down. So while "with" is just one key and "thinking" and "portals" is 5, there's not much difference in effort there.
 
-Just under a decade ago, all three of these things were only available in proprietary form. It cost, in US dollars, about one to four thousand dollars for the hardware, a thousand dollars yearly subscription for the software, and thousands for a college education, which can take 1 to 7 years.
+---
+
+# What is it good for?
+
+## Accessibility
+
+Accessibility is very important, and captioning of broadcast television is mandatory in North America. Realtime captioning is used to help deaf or hard of hearing individuals -- Mirabai Knight, captioning live tonight, also captions lectures and conventions. Currently two of her coworkers at White Coat Captioning, Norma Miller and Stanley Sakai, are captioning the WordCamp conference for deaf or hard of hearing individuals. 1 in 5 people report some kind of hearing loss. It's common for people to have hearing loss and not realize that they are missing out. It's also possible for hard-of-hearing individuals to not realize that captioning is a resource that they can be provided with. There are definitely points during this conference where I missed what was said and I can't imagine how difficult that must be if you are hard of hearing.
+
+In the modern age, we face a huge issue where most YouTube videos are posted without transcription, meaning that many cannot view viral videos and important news. YouTube has automatic transcription which is laughable because even at 90% accuracy, you are making mistakes every sentence. There are many free efforts to caption YouTube videos, but it captioning is much quicker on a steno machine than a keyboard.
+
+Another opportunity for steno to be useful for accessibility is people who don't speak. Anyone who doesn't speak but has full hand motor skills could use stenography to communicate with text to speech. They could hold conversations with stenography's great speed that rivals speech.
+
+The speed offered by stenography is the only equivalent to speaking that currently exists and is reliable.
+
+Steno is good for other purposes, anyone who types could benefit. It helps you get thoughts down and saves time and effort for your hands. It's great for chatting online as you can keep the pace of conversation up.
+
+Steno is also good for, well, coding.
+
+---
+
+## Programming
+
+I use steno to program now, full time in JavaScript, Java, and Python. It works great with Markdown. At the worst, it's about as fast as regular keyboard for coding, and at best you can do multiple words, symbols, or structures at once. Basically, because of the phonetic system, you never need to move off the "home row" for any symbol, really any word. So most symbols are as easy as writing a syllable or a word. It's much more ergonomic, I don't need to look at the keyboard ever, and comments and documentation are trivially easy. There's a video of me coding a fizzbuzz in JavaScript on the web, I write slowly in the video as I explain my thought process. On the right is Mirabai taking down some of Plover's source code. She's a faster stenographer than me so you can see what she came up with.
+
+---
+
+## Open Source Stenography
+
+Let's talk a little bit about learning machine stenography about a decade ago. To learn stenography, you need 3 things:
+
+- Hardware (input)
+- Software (logic) to handle the input from the hardware and convert it into plain English
+- Education (understanding) in order to learn the system and get faster
+
+Just under a decade ago, all three of these things were only available in proprietary form.
+
+---
+
+It cost about one to four thousand dollars for the hardware, a thousand dollars yearly subscription for the software, and thousands for a college education, which can take 1 to 7 years.
 
 The proprietary software solutions were created for the purposes of creating printed official court transcripts, and as such the software ended up being a walled-garden sandbox where you can only write into a document, like an enhanced Microsoft Word. That means that you are limited to only using steno to collect text.
 
-Steno was probably one of the most proprietary technologies in the world, and it got that way because of its niche use and lower popularity,  leading it to be a market with very few companies in charge. All that changed, though, when a geek learned steno.
+Steno was probably one of the most proprietary technologies in the world, and it got that way because of its niche use, leading it to be a market with very few companies in charge. All that changed, though, when a geek learned steno.
 
 ---
 
-Mirabai Knight is, as I mentioned, a geek. Here, I've collected some pictures as proof. She's captioning this talk today. She graduated from a court reporting school in March 2007, and was fed up with the whole system. She had this technology that allowed her to express ideas effortlessly at previously unattainable speeds, but was unable to use it for most of her everyday life, with software that was severely lacking in features. You can read through all the way back to 2008 where Mirabai had conceived and named what would be "Plover". She wanted an open source steno program to solve all the problems that the other software didn't.
-
-But, she couldn't code. Whoops. So an elevator ad, a little chance, and a dash of fate later, Mirabai actually met a freelance software engineer with a PhD from theMIT media lab who was willing to teach her Python.
+Today steno is a very welcoming and fun community. The software to get started is free, there are free tutorials, text books, games, and practicing websites. The hardware price has also decreased by a magnitude, bringing it down to the hundreds instead of the thousands.
 
 ---
 
-Joshua Lifton started to teach Mirabai Python, but as he soon found out, Mirabai wasn't totally interested in learning to code, but rather just how to code a single program. So, they started to code Plover together, and given a little bit more time, Mirabai decided that coding wasn't really her thing, and Joshua started developing the application on his own.
+Mirabai Knight is, as I mentioned, a geek. Here, I've collected some pictures as proof. She's captioning this talk today. She graduated from a court reporting school in March 2007, and was fed up with the whole system. She had this technology that allowed her to express ideas effortlessly at previously unattainable speeds, but was unable to use it for most of her everyday life, with software that was severely lacking in features. You can read through the Plover Blog all the way back to 2008 when Mirabai had conceived what would one day be Plover. She wanted an open source steno program to solve all the problems that the other software didn't.
+
+But, she couldn't code. Whoops. So an elevator ad, a little chance, and a dash of fate later, Mirabai actually met a freelance software engineer with a PhD from the MIT media lab who was willing to teach her Python.
+
+---
+
+Joshua Lifton started to teach Mirabai Python, but as he soon found out, Mirabai wasn't totally interested in learning to code, but rather just how to code a single program. So, they started to code a free steno engine together, and given a little bit more time, Mirabai decided that coding wasn't really her thing, and Joshua started developing the application on his own.
 
 And so, Plover was born!
 
 ---
 
-Oh wait, that's not software, those are Plover birds. Where did Dolores go...
+Plover is a species of bird. Why is it the name of a steno program? The way you write Plover on a steno machine is how many court reporters write "moreover". Moreover is a very court-ey word, and Mirabai wants Plover to be steno software for everyone, not just for court reporters.
+
+The wing on the Plover bird Dolores is actually a steno machine, and the dark keys are the stroke for "Plover". 
+
+Plover is unique because it doesn't require a steno machine, but rather just any keyboard that lets you register all keys at once. It was a very simple application and over many years, Plover grew. Josh eventually had to leave the ecosystem to focus on his company CrowdSupply, but before he did he announced the Stenosaurus.
 
 ---
 
-Plover was unique because it didn't require a steno machine, but rather just any NKRO keyboard. It was a very simple application and over many years, Plover grew.
-
-After a few years of development, Joshua Lifton was unable to work anymore on Plover due to his need to focus on Crowd Supply, a crowd funding platform based out or Portland which boasts a high funding success rate. Before he was done with programming Plover, though, he committed to design and release an open hardware partner to Plover: the Stenosaurus.
-
----
-
-The Stenosaurus is still in the works, but it has a blog where you can follow along on its development. It is a beautiful piece of hardware but will be hundreds of dollars instead of thousands like the steno machines currently on the market.
+The Stenosaurus is still in the works, but it has a blog where you can follow along on its development. It is a beautiful piece of hardware and will be hundreds of dollars instead of thousands like the steno machines currently on the market.
 
 So, without a developer, is Plover doomed? Well, no. After Josh left, another developer found himself interested in steno.
 
@@ -118,7 +186,7 @@ So, without a developer, is Plover doomed? Well, no. After Josh left, another de
 
 Hesky Fisher, who works as an engineer at Google, took over. Hesky made a big push in adding steno machine protocol support, vastly improving the cross platform functionality, and much more in his time as lead developer. He was super productive and still hangs around as a wiseman among the open steno community.
 
-Once people started to notice Hesky's absence, there was a clear need for a new developer. I'm no MIT graduate, heck I'm not even a uOttawa graduate yet, but just this past summer I found myself taking on the torch of Plover's lead dev.
+Once people started to notice Hesky's absence, there was a clear need for a new developer. I'm no MIT graduate, heck I'm not even a uOttawa graduate yet, but last summer I found myself taking on the torch of Plover's lead dev.
 
 Now, Plover is at a pretty great place that fills in a huge gap that existed just 6 years ago:
 
@@ -134,82 +202,17 @@ That's where Zack Brown comes in. He is a technical writer who has worked at Goo
 
 ---
 
-Also coming down the pipeline for free steno education is Steno Arcade, a collection of free steno minigames. This is being created by ForAllToPlay, which I'll quote from their site, "is a game studio that designs and develops video games that are accessible to people with visual, hearing, physical, & cognitive disabilities."
-
-They have a [working demo](https://steamcommunity.com/sharedfiles/filedetails/?id=581831873&searchtext=steno+hero) posted to Steam Greenlight for StenoHero, a lyric typing game with crowd feedback.
-
-Now, as for how I ended up where I am, I'd like to tell you about my stenography experience.
-
----
-
 # My stenography experience
 
-I had heard about steno, and as a keyboard layout switcher and TypeRacing hobbiest, it appealed to me, no questions asked. The hardware felt like a barrier, but luckily I had an ErgoDox, which I later reprogrammed with NKRO. In August 2014, I started reading through Mirabai's blog and Learn Plover! to start my journey.
+I'm just going to take a moment to tell you about my personal journey with steno.
 
-Progress went well until I realized that my hardware was not at all ideal (mainly due to the heavy actuation force on my ErgoDox's keys), and school was very busy. Then, after getting a new, lighter-switched ErgoDox, I continued my learning. I hit 100 words per minute about a year in. I received this Tréal machine while working on Plover, and now I'm hovering around 130 words per minute, though in bursts I hit around 180 words per minute.
+I had heard about steno on Hackernews, and as a keyboard layout switcher and TypeRacing hobbyist, it appealed to me, no questions asked. The hardware felt like a barrier, but luckily I had an ErgoDox, which with certain firmware supports NKRO. In August 2014, I started reading through Mirabai's blog and Learn Plover! to start my journey.
 
----
-
-Here's a speed graph of my 2500 TypeRaces. You can see it comes and goes in waves. I've come a long way from 10 words per minute.
-
-So, okay, it's fast, it's free, what is steno good for?
+Progress has been pretty steady and as I've gotten more involved with steno I've gotten nicer hardware. I hit 100 words per minute about a year in. I received this Tréal machine while working on Plover, and now I'm hovering around 140 words per minute, though in bursts I hit around 180 words per minute.
 
 ---
 
-# What is it good for?
-
-## Accessibility
-
-Accessibility is very important, and captioning of broadcast television is mandatory in North America. Realtime captioning is used to help deaf or hard of hearing individuals -- Mirabai Knight, captioning live tonight, also captions lectures and conventions.
-
-In the modern age, we face a huge issue where most YouTube videos are posted without transcription, meaning the deaf cannot view a lot of content. YouTube has automatic transcription which is laughable at best. There are many free efforts to caption YouTube videos, but stenography could help alleviate this problem.
-
-Anyone who cannot speak could also use stenography to communicate → if you cannot speak, learn steno and then use a text-to-speech program, and you can write at a conversional pace.
-
-The speed offered by stenography is the only equivalent to regular communication that currently exists and is reliable.
-
-Steno is also good for, well, programming.
-
----
-
-## Programming
-
-I am using steno to program now, full time in JavaScript, Java, and Python. It works great with Markdown. At the worst, it's about as fast as regular keyboard for coding, and at best you can do multiple words, symbols, or structures at once. Basically, because of the phonetic system, you never need to move off the "home row" for any symbol, really any word. So most symbols are as easy as writing a syllable or a word. It's much more ergonomic, I don't need to look at the keyboard ever, and comments and documentation are trivially easy. I'm going to show you now a FizzBuzz.
-
-Has everyone here heard of FizzBuzz? FizzBuzz is an interview question, and it is used to test basic coding capability. I'm sure that my coworkers and friends can attest that I'm way too obsessed with FizzBuzz. FizzBuzz is a program that prints out the numbers 1 through 100, except if the number is divisible by 3, then it prints Fizz, or if it's divisible by 5, then it prints Buzz, or if it's divisible by both 3 and 5, it prints out FizzBuzz. Let's write a quick recursive FizzBuzz so you can get a feel for coding in steno.
-
-```python
-def number_to_fizzbuzz(number):
-    string = '%s%s' % ('Fizz' if number % 3 == 0 else '',
-                        'Buzz' if number % 5 == 0 else '')
-    return string if string else number
-
-def calculate_fizzbuzz(start, end, list=[]):
-    if start > end:
-        return list
-    return calculate_fizzbuzz(start + 1,
-                              end,
-                              list + [number_to_fizz_buzz(start)])
-
-for fb in calculate_fizzbuzz(start=1, end=100):
-    print(fb)
-```
-
-There's a fizzbuzz. Okay, cool, it works. Now how does it do that? I'll talk a little bit about the theory behind machine shorthand.
-
----
-
-# How does it work?
-
-Stenography works by shortening English to as short as possible so that you can express as much as you can with as few keys as possible. I like to think about it as "thinking with portals" → think-ing w portal-s → thig w porls.
-
----
-
-## Layout
-
-The layout is split into 3 parts, `STKPWHR\*`, `AOEU`, and `\*FRPBLGTSDZ`. The left fingers handle the starting sound of the word, the thumbs handle the vowel sound, and the right hand handles the ending sound. Press all the keys at once to make a chord, and when the chord is released, the word appears on the screen. You can see some simple phonetic examples like cat or Ted: ST*K*PWHR*A*OEUFRPBLG*T*SDZ → "KAT" → "cat". S*T*KPWHRAO*E*UFRPBLGTS*D*Z → "TED" → "Ted". There are also chords for the missing letters on the beginning side, and many ending sounds. Here we see PH being selected, which translates to M: STK*P*W*H*RA*OE*UF*R*PBLGTSDZ which makes "MOER" → "mother"
-
-There's no single way to write on steno, theories tend to be very personal and different people will find different theories easier than others. Some theories are light on memory, but require more strokes, such as Phoenix. These tend to be very phonetic based, as long as you can speak it, you can write it. Some are more memory heavy, like Mark Kislingbury's Magnum theory. Plover ships with a hybrid theory based off of StenED, a sort of middle of the line theory that is easy enough to learn but is still efficient.
+Here's a speed graph of my 2700 TypeRaces. You can see it comes and goes in waves. I've come a long way from 10 words per minute.
 
 ---
 
@@ -219,9 +222,11 @@ Now we'll talk about how Plover, the Python program, actually works.
 
 Plover takes strokes as input, processes the strokes based on a dictionary and orthographic rules, then outputs emulated keyboard keys.
 
+I'll talk about how Plover has to deal with specialized hardware, steno logic, and then actually output something in order to functionally replace a keyboard.
+
 ---
 
-The input comes in the form of some sort of steno machine. You have the choice of a computer keyboard, particularly one with NKRO, or a steno machine. There are many custom steno machines made by the open source community, including the Stenoboard and the SOFT/HRUF. These can communicate in NKRO or in serial protocols. Prices for steno machines pictured, in USD: 70-100 for the gaming keyboard, 100-250 for the 3D printed machines, 5000 for the Infinity Ergonomic, and the breadboard machine made by Charles Shattuck?... priceless.
+The input comes in the form of some sort of steno machine. You have the choice of a computer keyboard, particularly one with NKRO, or a steno machine. There are many custom steno machines made by the open source community, including the Stenoboard and the SOFT/HRUF. These can communicate in NKRO or in serial protocols. Prices for steno machines pictured, in USD: 70-100 for the gaming keyboard, 100-250 for the 3D printed machines, 5000 for the Infinity Ergonomic, and the breadboard machine made by Charley?... priceless.
 
 ---
 
@@ -235,56 +240,55 @@ Next, the stroke gets processed through the user's dictionary configuration. The
 - There is no nesting, the dictionary is a flat object. Plover's is represented in JSON.
 - Each an entry's key can be a sequence of strokes, as separated by slashes.
 - The output is a string, which can contain literal characters, special Plover operators, or commands.
-  - The string is literally just the string, most of the time this is what people want. If I want to define a stroke for "Ottawa Python" as a phrase, I write in the strokes and the output, e.g. `"OT/WA/PAO*EUT/*OPB": "Ottawa Python".`
-  - You can also tell Plover exactly which keys to hit, including modifiers and special keys. If I want to do a simple control-c, I can define `{#Control_L(c)}`
+  - The string is literally just the string, most of the time this is what people want.
+  - You can also tell Plover exactly which keys to hit with a macro language. This language includes modifiers, special keys, and media keys. If I want to do a simple control-c, I can define `{#Control_L(c)}`
   - Plover supports certain grammar and logic modifiers, in case you'd like a stroke to be a suffix or prefix, or if you'd like to make the next word capital, or the last word capital. These are just special characters inside curly braces. Like if I wanted to define a suffix like "awesomistically", I could do `"SPHEUFBG": "{^awesomistically}"`, then make any word like: cattawesomistically, Teddawesomistically, and Pythonnawesomistically. You can see that some letters got doubled there, that's thanks to Plover's built-in orthography rules.
 
-The orthography rules are mainly a set of regex replaces to allow the suffix and prefix system to work well, and this makes it more powerful that many of the proprietary systems on the market.
+The orthography rules are mainly a set of regex replaces to allow the suffix and prefix system to work well, and this makes it more powerful than many of the proprietary systems on the market.
 
 ---
 
-Finally, the output stage. At this point, we use an operating system-specific implementation to simulate a keyboard pressing all the keys that Plover does. On OS X, this means using Quartz event APIs, on Linux we deal with XLib, and on Windows we use SendKeys. There are some difficulties when dealing with the three operating systems. Particularly, modifier keys sort of behave differently across the systems, as do keycodes. Making sure that our emulation is effective on all programs has been a great challenge. On Linux, we initially had trouble suppressing the input, so Plover would actually send backspaces to remove all the QWERTY keys that were hit. That's been fixed recently, but was a problem for over 5 years.
+Finally, the output stage. At this point, we use an operating system-specific implementation to simulate a keyboard pressing all the keys that Plover does. On OS X, this means using Quartz event APIs, on Linux we deal with XLib, and on Windows we use SendKeys. There are some difficulties when dealing with the three operating systems. Particularly, modifier keys sort of behave differently across the systems, as do keycodes. Making sure that our emulation is effective on all programs has been a great challenge.
 
-On Windows, the Windows key wasn't implemented, and certain programs didn't accept Plover's input, such as pidgin and 10 fast fingers. This change isn't committed to master yet.
+I'll list some shortcomings that have been fixed recently on each system:
 
-On OSX, we always send key code 0 along with a Unicode string. This presents a problem for any legacy applications that don't handle the string, they just see a bunch of key presses to the "A" key. Furthermore, on OSX our command keys fall back to QWERTY key codes, so non-US layouts don't work for commands. For a while, Plover didn't properly support extended Unicode, and that has only recently been fixed on most systems. Linux is stuck to produce only what is defined in X lib, so it cannot do arbitrary keys yet.
+- On Linux, we initially had trouble suppressing the input, so Plover would actually send backspaces to remove all the QWERTY keys that were hit.
+
+- On Windows, the Windows key wasn't implemented, and certain programs didn't accept Plover's input, such as pidgin and 10 fast fingers.
+
+- On OSX, we used to always send key code 0 along with a Unicode string. This presented a problem for any legacy applications that don't handle the string, they just see a bunch of key presses to the "A" key. Furthermore, on OSX our command keys fell back to QWERTY key codes, so non-US layouts didn't work for commands.
+
+These problems weren't trivial to solve, and I think that the cross-platform output we have is really good now, we should probably break it out into a Python library.
 
 ---
 
-We also had some problem with full unicode support, which fully manifested with emoji. We weren't able to backspace emojis correctly, treating them as two characters when in reality they were just one. Now that's all fixed, but man, you learn more about Unicode than you ever wanted to know. Apparently all this Unicode stuff has been fixed in Plover 3, but we're still on Python 2.7 in Plover.
-
-Which brings up the point, this software is not finished.
-
----
-
-There are still a lot of problems that take up my free time when I'm not at school, work, or with family.
-
-There a few big tasks to figure out and implement with Plover. I've had the amazing company of Benoit-Pierre on GitHub, and together with the community we've been looking at some of these lingering issues.
-
-- Our code base is written for Python 2.7, and that's kind of a bummer because Python 3 is a much better language to work with. I'm not actually sold on this as a valid use of time, maybe some of you could inform me why we should jump to 3.x
-- Currently, there's no way to "hold down" a modifier, and so you cannot do things like shift or control click, meaning often when I'm doing file management or using Photoshop, I'll find myself needing both my keyboard and my steno machine out.
-- Plover has its layout hard coded, meaning that to change the steno layout or the number of keys, you need to modify the source code and rebuild Plover. This is a huge barrier to using stenography in other languages, and it's a high priority to making Plover useful internationally.
-- We are using wxPython classic as a our UI, and this proves really difficult whenever we try to do user interface work that is non-trivial in Plover. It would be ideal to move over to someone like QT but that's a huge development effort.
-- Plover doesn't look that great, and we only have the one Dolores, as cherished as she is.
+We also had some problem with full unicode support, which fully manifested with emoji. We weren't able to backspace emojis correctly, treating them as two characters when in reality they were just one. Now that's all fixed, but man, you learn more about Unicode than you ever wanted to know. All this Unicode stuff has been fixed in Plover 3, but we're still on Python 2.7 in Plover, for now. Our most excellent contributor right now is working on porting Plover to Python 3 in a huge overhaul of the internals and UI.
 
 ---
 
 # Where is steno going?
 
+There are still a lot of problems that take up my free time when I'm not at school, work, or with family. There are over 50 issues open on GitHub right now, all of various sizes.
+
+There a few big tasks to figure out and implement with Plover. I've had the amazing company of super-developer Benoit Pierre on GitHub, and together with the community we've been working through long time issues.
+
+I feel great reward working on Plover, as it's probably one of the more diverse online communities I've seen. We get people from all over the world, many with little or no development skill but a great interest and passion for stenography. We get people who are looking to adapt Plover to their language's steno system, or to develop new steno systems for languages that don't have one. Or even using lexigraphical analysis to try and best the classic steno layout (which they haven't yet). I have fun meeting with and chatting the community.
+
 So by now you might be wondering what the deal is. You know where steno has come from, you know how it works, you know what it can do. But, where is it going? Is court reporting a real job anymore?
 
-Pretty valid questions, and definitely once that the Open Steno Project concerns itself with.
+Pretty valid questions, and definitely one that the Open Steno Project concerns itself with.
 
 ---
 
 The OpenStenoProject is Mirabai's umbrella organization over all that is open steno software, hardware, and learning materials. It contains Plover and some other projects, as well.
 
-As for the future of stenography, it's in the hands of hackers like you and me now. Stenography has great speed, and many people care about that for different reasons. For people like me, it's probably a little more selfish, I want to type fast, I want to code, I want to avoid RSI from programming as a career, I want to be the best at TypeRacer, I want to do it as a hobby, I want to take notes quickly, I want to write documentation quicker, I want to avoid typos, I don't want to have to think about spelling, I want to do everything more quickly on my computer. I fit into this category, and I feel like a lot of you might.
+As for the future of stenography, it's in the hands of hackers like you and me now. Stenography has great speed, and many people care about that for different reasons. For people like me, it's probably a little more selfish, I want to type fast, I want to code, I want to avoid RSI from programming as a career, I want to be the best at TypeRacer, I want to do it as a hobby, I want to take notes quickly, I want to write documentation quicker, I want to avoid typos, I don't want to have to think about spelling, I want to do everything more quickly on my computer. I fit into this category, and I feel like a lot of you might too.
 
 ---
 
 If you are curious about learning steno, don't be afraid to get involved in the online community. I don't think there's such thing as a dumb question, just questions that should be Googled first.
 
-I'll leave with some links, there's the Plover Blog that you can see all of Plover's history in as well as keep up with Plover news. Aloft.nu is the realtime website that we've been using today to caption these slides, also created by a Plover community member. There is Stenodict, a website I created to share stenographic dictionaries between stenographers. The Google Group and Discord server are there in case you want to get in touch.
+I'll leave with some links, there's the Plover Blog that you can see all of Plover's history in as well as keep up with Plover news. Aloft.nu is the realtime website that we've been using today to caption these slides, also created by self-taught Plover stenographer Stanley Sakai. There is Stenodict, a website I created to share stenographic dictionaries between stenographers. The Google Group and Discord server are there in case you want to get in touch.
 
-I'd like to thank everyone for coming today, and thank you so much for your attention. I hope that I've been entertaining enough for you, and that you were able to learn, at the very least, some neat trivia. I would like to thank Ian Ward for, as always, setting up the Python Authors Meetup, and for Shopify for generously hosting us in their outstanding office. It's been great talking here tonight, I've been Ted Morin and I hope to have some great chats with you later!
+I'd like to thank everyone for coming today, and thank you so much for your attention. I hope that I've been entertaining enough for you, and that you were able to learn, at the very least, some neat trivia. It's been great talking here this afternoon. I'll stick around and you can play a little with the steno machines I brought to see what it's like. I've been Ted Morin and I hope to have some great chats with you later!
+

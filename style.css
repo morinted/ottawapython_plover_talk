@@ -16,13 +16,12 @@ iframe {
 
 .aloft {
  top: 0;
- margin-top: -53px;
- height: 250px;
+ height: 160px;
 }
 
 .contain-main {
  position: absolute;
- top: 200px;
+ top: 160px;
  bottom: 0;
  left: 0;
  width: 100%;
