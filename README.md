@@ -43,7 +43,7 @@ Stenography allows people to write on a computer at over 225 words per minute, o
 
 ---
 
-I'm going to start us off with a quick demo video I made to show the difference between writing with a steno machine versus a Qwerty keyboard. I'm playing a free game on Steam called Steno Arcade, which was created by an accessibility-focused gaming company in partnership with Open Steno, and was recently successfully crowdfunded. In the game, you write the lyrics to a song as the singer sings them for a high score. Go download it when you get home.
+I'm going to start us off with a quick demo video I made to show the difference between writing with a steno machine versus a Qwerty keyboard. I'm playing a free game on Steam called Steno Arcade, which was created by accessibility-focused gaming company ForAllToPlay in partnership with Open Steno, and was recently successfully crowdfunded. In the game, you write the lyrics to a song as the singer sings them for a high score. Go download it when you get home.
 
 I want to show you what it looks like to write on a steno machine, and you can see the contrast in my hand movement, effort, and game accuracy. Please note that I'm not the fasted typist nor stenographer by far.
 
